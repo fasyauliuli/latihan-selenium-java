@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    testImplementation 'net.serenity-bdd:serenity-core:3.5.0',
+            'net.serenity-bdd:serenity-cucumber:3.5.0',
+            'net.serenity-bdd:serenity-screenplay:3.5.0',
+            'net.serenity-bdd:serenity-screenplay-webdriver:3.5.0',
+            'net.serenity-bdd:serenity-ensure:3.5.0',
+            'org.junit.platform:junit-platform-launcher:1.9.0',
+            'org.junit.jupiter:junit-jupiter-engine:5.9.0',
+            'org.junit.vintage:junit-vintage-engine:5.9.0',
+            'org.assertj:assertj-core:3.23.1'
+
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+
+//Rest assured
+    testImplementation 'net.serenity-bdd:serenity-rest-assured:3.5.0'
+
+//selenium
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.7.2'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '4.7.2'
+
+    testImplementation 'io.cucumber:cucumber-java:6.1.1'
+}
+
+test {
+    useJUnitPlatform()
+}
